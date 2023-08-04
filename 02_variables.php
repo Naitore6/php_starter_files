@@ -44,3 +44,31 @@ $name1= 'Joe';
 $name2='Joseph';
 $name3='James';
 echo "$name1," . "$name2" . "and $name3 are brothers";
+
+
+/* --------- Variable Scope --------- */
+// Variables can be declared anywhere in the script
+//There are three different variable scopes:
+
+    //Local-declared within a function and can only be accesed within that function.
+    function myTest() {
+        $y = 10; // local scope
+        echo "<p>Variable x inside function is: $y</p>";
+      }
+      myTest();
+      
+      // using x outside the function will generate an error
+      echo "<p>Variable x outside function is: $y</p>";
+
+    //Global-declared outside a function and can only be accesed outside a function.
+    $x = 5; // global scope
+
+function myTest2() {
+  // using x inside this function will generate an 'undefined variable' error
+  echo "<p>Variable x inside function is: $x</p>";
+}
+myTest();
+
+echo "<p>Variable x outside function is: $x</p>";
+
+    //Static-
