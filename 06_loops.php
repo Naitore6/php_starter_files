@@ -90,8 +90,8 @@ foreach($numbers as $y){
 
 //Use the indexes within the loop
 $posts=['Pole One','Pole Two','Pole Three'];
-foreach($posts as $index=> $post){
-  /*$index is system defined*/echo "${index} - ${post} <br>";
+foreach($posts as $index=> $z){
+  /*$index is system defined*/echo "${index} - ${z} <br>";
 }
 
 //Use the keys within the loop for an associative array
