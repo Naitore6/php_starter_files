@@ -25,17 +25,17 @@ array_shift($fruits); //Removes first element
 
 //Remove specific element
 unset($fruits[2]);
-
+unset($fruits['lemon']);//without using the index
 //Split into chunks of 2
 $chunkedArray= array_chunk($fruits,2);
 var_dump($chunkedArray);
 
 //Concatenate arrays
 $arr1=[1,2,3];
-$arr1=[4,5,6];
+$arr2=[4,5,6];
 $arr3=array_merge($arr1,$arr2);
 var_dump($arr3);
-$arr4=[...$arr1, ...$arr2]; //Use Spread
+$arr4=[...$arr1, ...$arr2];  //Use Spread
 var_dump($arr4);
 
 //Combine arrays(keys & values)
@@ -43,13 +43,13 @@ var_dump($arr4);
 /*Creates an array by using the values from the "keys" array (first array declared) as keys 
 and the values of the "values" array(second array declared) as its corresponding values.*/
 $a =['green','red','yellow'];
-$a =['avocado','apple','banana'];
-$a =array_combine($a,$b);
+$b =['avocado','apple','banana'];
+$c =array_combine($a,$b);
 
 //Array of keys
 $keys=array_keys($c);
 
-//Flip keys with values
+//Flip/exchanges keys with values
 $flipped=array_flip($c);
 var_dump($flipped);
 
@@ -65,6 +65,14 @@ $newNumbers=array_map(function($number){
 $lessthan10=array_filter($numbers,fn($number)=>$number <10);
 
 //Array reduce
+//Iteratively reduces the array to a single value using a calllback function
+/*Applies iteratively the callback function  to the elements of the array 
+so as to reduce the array into a single value*/
 //"Carry" holds the return value of the previous iteration
 $sum=array_reduce($numbers,fn($carry,$number) => $carry + $number);
 var_dump($sum);
+function myfunction($v1,$v2){
+  return $v1. "->" .$v2;
+}
+$animals=array("Dog","Cat","Cow","Hen","Duck");
+print_r(array_reduce($animals,"myFunction"));
